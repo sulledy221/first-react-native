@@ -1,5 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import Notes from "./Notes";
 
 export default function Main() {
   return (
@@ -7,6 +15,19 @@ export default function Main() {
       <View style={styles.header}>
         <Text style={styles.header}>First React Native</Text>
       </View>
+      <ScrollView style={styles.scrollContainer}>
+        <Notes />
+      </ScrollView>
+      <View styles={styles.footer}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="add a Todo..."
+          placeholderTextColor="#eee"
+        ></TextInput>
+      </View>
+      <TouchableOpacity style={styles.addButton}>
+        <Text style={styles.addButtonText}>+</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -25,13 +46,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderBottomWidth: 10,
     borderBottomColor: "#ddd",
-    paddingTop: 20,
-  },
-  headerText: {
-    color: "#FFD700",
+    paddingTop: 40,
     fontSize: 36,
-    padding: 26,
+    padding: 20,
     fontWeight: "500",
+    width: 390,
+    color: "#FFD700",
   },
   scrollContainer: {
     flex: 1,
@@ -52,6 +72,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 2,
     borderTopColor: "#ededed",
     fontSize: 32,
+    width: 390,
   },
   addButton: {
     position: "absolute",
